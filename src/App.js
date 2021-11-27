@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch } from 'react-router';
+import AppBar from './components/AppBar/AppBar';
+import { useEffect, Suspense, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import authOperations from './redux/auth/auth-operations';
+import PrivatRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import { authSelector } from './redux/auth/auth-selectors';
 
-function App() {
+const HomeView = lazy(() => import('./components/HomeView/HomeView'));
+const RegisterView = lazy(() =>
+  import('./components/RegisterView/RegisterView'),
+);
+const LoginView = lazy(() => import('./components/LoginView/LoginView'));
+const ContactsView = lazy(() => import('./components/ContctsView/ContactView'));
+
+export default function App() {
+  const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelector.getFetchingCurrent);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    !isFetchingCurrentUser && (
+      <div>
+        <AppBar />
+        <Switch>
+          <Suspense fallback={<p>Loading...</p>}>
+            <PublicRoute exact path="/">
+              <HomeView />
+            </PublicRoute>
+            <PublicRoute exact path="/register" restricted redirectTo="/">
+              <RegisterView />
+            </PublicRoute>
+            <PublicRoute exact path="/login" restricted redirectTo="/contacts">
+              <LoginView />
+            </PublicRoute>
+            <PrivatRoute path="/contacts" redirectTo="/login">
+              <ContactsView />
+            </PrivatRoute>
+          </Suspense>
+        </Switch>
+      </div>
+    )
   );
 }
-
-export default App;
