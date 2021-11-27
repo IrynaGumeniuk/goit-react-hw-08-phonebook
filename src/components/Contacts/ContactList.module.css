@@ -21,11 +21,11 @@
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
-  background: rgb(96, 9, 240);
+  background: #ffffff;
   background: linear-gradient(
     0deg,
-    rgba(96, 9, 240, 1) 0%,
-    rgba(129, 5, 240, 1) 100%
+    rgb(255, 255, 255) 0%,
+    rgb(171, 170, 172) 100%
   );
   border: none;
 }

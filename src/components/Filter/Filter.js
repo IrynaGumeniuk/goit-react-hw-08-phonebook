@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Filter.module.css';
+import s from './Filter.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '../../redux/contacts/actions';
@@ -10,7 +10,7 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.wrapper}>
+    <div className={s.wrapper}>
       <label>
         Find contacts by name
         <input

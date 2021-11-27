@@ -1,22 +1,10 @@
 import React from 'react';
+import s from './HomeView.module.css';
 
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
 
 const HomeView = () => (
-  <div style={styles.container}>
-    <h1 style={styles.title}>
+  <div className={s.container}>
+    <h1 className={s.title}>
       Hey! This is a service for storing your contacts)
     </h1>
   </div>

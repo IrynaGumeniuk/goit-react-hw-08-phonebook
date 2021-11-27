@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
-import style from '../LoginView/LoginView.module.css';
+import s from '../LoginView/LoginView.module.css';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
 export default function RegisterView() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -40,11 +30,11 @@ export default function RegisterView() {
     setPassword('');
   };
   return (
-    <div className={style.wrapper}>
+    <div className={s.wrapper}>
       <h1>Страница регистрации</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
+      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
+        <label className={s.label}>
           Имя
           <input
             type="text"
@@ -53,7 +43,7 @@ export default function RegisterView() {
             onChange={handleChange}
           ></input>
         </label>
-        <label style={styles.label}>
+        <label className={s.label}>
           Почта
           <input
             type="email"
@@ -62,7 +52,7 @@ export default function RegisterView() {
             onChange={handleChange}
           />
         </label>
-        <label style={styles.label}>
+        <label className={s.label}>
           Пароль
           <input
             type="password"
@@ -71,8 +61,8 @@ export default function RegisterView() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className={style.submit}>
-          Зарегестрироваться
+        <button type="submit" className={s.submit}>
+          Зарегистрироваться
         </button>
       </form>
     </div>

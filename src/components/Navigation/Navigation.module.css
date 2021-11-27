@@ -1,6 +1,7 @@
 .nav {
   font-size: 20px;
   font-weight: bold;
+  color: white;
 }
 .nav:nth-child(1) {
   margin-right: 10px;

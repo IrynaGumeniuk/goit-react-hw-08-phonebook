@@ -1,6 +1,7 @@
 .wrapper {
   background-color: #e6e6fa;
   padding: 20px;
+  margin-top: 25px;
   margin-right: auto;
   margin-left: auto;
   width: 400px;
@@ -12,8 +13,9 @@
   height: 35px;
   color: #fff;
   border-radius: 5px;
+  margin-top: 15px;
   padding: 10px 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -24,11 +26,7 @@
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   background: rgb(96, 9, 240);
-  background: linear-gradient(
-    0deg,
-    rgba(96, 9, 240, 1) 0%,
-    rgba(129, 5, 240, 1) 100%
-  );
+  background: linear-gradient(0deg, #4e09f0 0%, rgb(48, 5, 240) 100%);
   border: none;
 }
 .submit:before {
@@ -40,4 +38,14 @@
     -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
     inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+.form {
+  width: 320;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15;
 }

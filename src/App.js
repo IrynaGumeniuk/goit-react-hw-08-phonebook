@@ -3,7 +3,7 @@ import AppBar from './components/AppBar/AppBar';
 import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import authOperations from './redux/auth/auth-operations';
-import PrivatRoute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { authSelector } from './redux/auth/auth-selectors';
 
@@ -12,7 +12,7 @@ const RegisterView = lazy(() =>
   import('./components/RegisterView/RegisterView'),
 );
 const LoginView = lazy(() => import('./components/LoginView/LoginView'));
-const ContactsView = lazy(() => import('./components/ContctsView/ContactView'));
+const ContactsView = lazy(() => import('./components/ContactsView/ContactView'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -37,9 +37,9 @@ export default function App() {
             <PublicRoute exact path="/login" restricted redirectTo="/contacts">
               <LoginView />
             </PublicRoute>
-            <PrivatRoute path="/contacts" redirectTo="/login">
+            <PrivateRoute path="/contacts" redirectTo="/login">
               <ContactsView />
-            </PrivatRoute>
+            </PrivateRoute>
           </Suspense>
         </Switch>
       </div>

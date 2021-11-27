@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
-import style from '../LoginView/LoginView.module.css';
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import s from '../LoginView/LoginView.module.css';
 
 const LoginView = () => {
   const [email, setEmail] = useState('');
@@ -37,11 +27,11 @@ const LoginView = () => {
   };
 
   return (
-    <div className={style.wrapper}>
+    <div className={s.wrapper}>
       <h1>Страница логина</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
+      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
+        <label className={s.label}>
           Почта
           <input
             type="email"
@@ -50,7 +40,7 @@ const LoginView = () => {
             onChange={handleChange}
           ></input>
         </label>
-        <label style={styles.label}>
+        <label className={s.label}>
           Пароль
           <input
             type="password"
@@ -59,7 +49,7 @@ const LoginView = () => {
             onChange={handleChange}
           ></input>
         </label>
-        <button type="submit" className={style.submit}>
+        <button type="submit" className={s.submit}>
           Войти
         </button>
       </form>

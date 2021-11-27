@@ -1,5 +1,5 @@
 import { React, useEffect } from 'react';
-import styles from './ContactList.module.css';
+import s from './ContactList.module.css';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
@@ -14,13 +14,13 @@ const ContactList = () => {
 
   const onDeleteContact = id => dispatch(deleteContact(id));
   return (
-    <ul className={styles.list}>
+    <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
-        <li key={id} className={styles.item}>
-          <p className={styles.text}>
+        <li key={id} className={s.item}>
+          <p className={s.text}>
             {name} : {number}
           </p>
-          <button className={styles.btn} onClick={() => onDeleteContact(id)}>
+          <button className={s.btn} onClick={() => onDeleteContact(id)}>
             Delete
           </button>
         </li>

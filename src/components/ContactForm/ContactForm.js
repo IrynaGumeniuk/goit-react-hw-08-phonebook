@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import styles from './ContactForm.module.css';
+import s from './ContactForm.module.css';
 import { addContacts } from '../../redux/contacts/operations';
 import { getContacts } from '../../redux/contacts/selectors';
 
@@ -48,7 +48,7 @@ const ContactForm = ({ onAdd }) => {
     setNumber('');
   };
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <label htmlFor={prodIdName}>Name</label>
       <input
         id={prodIdName}
@@ -74,7 +74,7 @@ const ContactForm = ({ onAdd }) => {
         required
         onChange={handleChange}
       />
-      <button type="submit" className={styles.submit}>
+      <button type="submit" className={s.submit}>
         Add contact
       </button>
     </form>
