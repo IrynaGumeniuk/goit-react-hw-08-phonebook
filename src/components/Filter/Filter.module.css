@@ -6,3 +6,7 @@
   justify-content: center;
   outline: 1px dotted #ffffff;
 }
+
+.input {
+  margin-left: 15px;
+}

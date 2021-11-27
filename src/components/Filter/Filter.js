@@ -16,6 +16,7 @@ const Filter = () => {
         <input
           type="text"
           value={contacts}
+          className={s.input}
           onChange={e => dispatch(changeFilter(e.target.value))}
         />
       </label>
